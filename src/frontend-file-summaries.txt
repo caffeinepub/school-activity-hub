@@ -1,0 +1,18 @@
+{
+  "frontend/src/App.tsx": "Main application component with TanStack Router setup and authentication flow without profile setup modal.",
+  "frontend/src/components/Layout.tsx": "Reusable layout component with responsive header navigation, authentication button, mobile menu, and footer with social links and attribution.",
+  "frontend/src/components/ProfileSetupModal.tsx": "Modal dialog for first-time user profile setup that prompts authenticated users to enter their name.",
+  "frontend/src/components/ActivityCard.tsx": "Reusable card component displaying activity information with category badges, date/time/location details, and click navigation to detail page.",
+  "frontend/src/components/ActivityFilters.tsx": "Filter component with search input, category dropdown, and date range pickers for filtering activities with clear functionality.",
+  "frontend/src/components/CalendarGrid.tsx": "Monthly calendar grid component displaying activities with category-colored indicators, month navigation, and day click handlers using ReactElement type from React.",
+  "frontend/src/components/DayActivitiesModal.tsx": "Modal dialog showing all activities for a selected calendar day with navigation to activity details.",
+  "frontend/src/pages/HomePage.tsx": "Homepage with hero banner, activity filters, and grid display of all activities with empty state handling.",
+  "frontend/src/pages/CreateActivityPage.tsx": "Form page for creating new activities with all required fields, validation, and authentication check.",
+  "frontend/src/pages/ActivityDetailPage.tsx": "Detailed activity view page showing full information, participant count, and registration functionality with organizer principal displayed instead of name.",
+  "frontend/src/pages/MyActivitiesPage.tsx": "Page displaying all activities the current user has registered for with empty state and authentication check.",
+  "frontend/src/pages/CalendarPage.tsx": "Calendar view page with monthly grid display and modal for viewing activities on selected dates.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for backend operations including activities and registrations with proper cache invalidation, without user profile methods.",
+  "frontend/src/hooks/useActivityFilter.ts": "Custom hook implementing client-side filtering logic for activities by category, search query, and date range.",
+  "frontend/src/index.css": "Global styles with OKLCH-based color system featuring warm orange and teal education theme for light and dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration with custom color tokens, font families (Inter, Poppins), and extended design system for education-focused theme."
+}

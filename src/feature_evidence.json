@@ -1,0 +1,153 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-homepage-that-displays-an-overview-of-upcoming-school-activities-with-their-dates-times-and-locations",
+      "featureTitle": "Create a homepage that displays an overview of upcoming school activities with their dates, times, and locations",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ActivityCard.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-functionality-to-create-new-school-activities-with-fields-for-title-description-date-time-location-and-category-e-g-sports-academic-arts-social",
+      "featureTitle": "Implement functionality to create new school activities with fields for title, description, date, time, location, and category (e.g., sports, academic, arts, social)",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/CreateActivityPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-ability-to-view-detailed-information-for-individual-activities-including-full-description-organizer-details-and-participant-count",
+      "featureTitle": "Add ability to view detailed information for individual activities including full description, organizer details, and participant count",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ActivityCard.tsx",
+        "frontend/src/pages/ActivityDetailPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-activity-registration-functionality-allowing-users-to-sign-up-for-activities-and-view-their-registered-activities",
+      "featureTitle": "Implement activity registration functionality allowing users to sign up for activities and view their registered activities",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/ActivityDetailPage.tsx",
+        "frontend/src/pages/MyActivitiesPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-filtering-and-search-capabilities-to-find-activities-by-category-date-range-or-keyword-search",
+      "featureTitle": "Add filtering and search capabilities to find activities by category, date range, or keyword search",
+      "files": [
+        "frontend/src/components/ActivityFilters.tsx",
+        "frontend/src/hooks/useActivityFilter.ts",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-calendar-view-that-displays-all-activities-in-a-monthly-grid-format-with-visual-indicators-for-different-activity-types",
+      "featureTitle": "Create a calendar view that displays all activities in a monthly grid format with visual indicators for different activity types",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/CalendarGrid.tsx",
+        "frontend/src/components/DayActivitiesModal.tsx",
+        "frontend/src/pages/CalendarPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-design-a-vibrant-education-focused-visual-theme-with-warm-energetic-colors-oranges-greens-teals-playful-typography-and-a-clean-card-based-layout-that-emphasizes-clarity-and-accessibility-for-school-environments",
+      "featureTitle": "Design a vibrant, education-focused visual theme with warm, energetic colors (oranges, greens, teals), playful typography, and a clean card-based layout that emphasizes clarity and accessibility for school environments",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

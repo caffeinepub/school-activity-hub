@@ -1,0 +1,240 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "School Activity Hub Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Display upcoming school activities on homepage with dates, times, and locations",
+      "acceptanceCriteria": [
+        "Homepage displays a list of activities",
+        "Each activity shows date, time, and location",
+        "Activities are sorted by date with upcoming events first"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "create",
+          "description": "Create homepage component that displays a list of upcoming activities. Query getUpcomingActivities from backend and render activities in a card-based layout showing title, date, time, location, and category. Include hero banner image at frontend/public/assets/generated/hero-banner.dim_1200x400.png."
+        },
+        {
+          "path": "frontend/src/components/ActivityCard.tsx",
+          "operation": "create",
+          "description": "Create reusable activity card component that displays activity title, date, time, location, and category with appropriate styling and category color indicators."
+        },
+        {
+          "path": "frontend/src/hooks/useActivities.ts",
+          "operation": "create",
+          "description": "Create React Query hook to fetch upcoming activities from backend using getUpcomingActivities method. Handle loading and error states."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for HomePage component at root path. Ensure authentication check is in place before displaying application content."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Implement activity creation form with all required fields",
+      "acceptanceCriteria": [
+        "Users can access an activity creation form",
+        "Form includes all required fields: title, description, date, time, location, category",
+        "Activities are saved to the backend",
+        "Newly created activities appear in the activity list"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/CreateActivityPage.tsx",
+          "operation": "create",
+          "description": "Create activity creation page with form for title, description, date, time, location, and category fields. Use authorization component to ensure only authenticated users can access. Include category icons from frontend/public/assets/generated/category-icons.dim_256x256.png for category selection."
+        },
+        {
+          "path": "frontend/src/components/ActivityForm.tsx",
+          "operation": "create",
+          "description": "Create reusable form component for activity input with validation. Include date picker, time input, text fields, and category dropdown. Handle form submission and validation errors."
+        },
+        {
+          "path": "frontend/src/hooks/useCreateActivity.ts",
+          "operation": "create",
+          "description": "Create React Query mutation hook to create activities using createActivity backend method. Handle success/error states and invalidate activity list query on success."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for CreateActivityPage component. Wire navigation link in main layout/header to allow users to access activity creation."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Display detailed activity information including organizer and participant count",
+      "acceptanceCriteria": [
+        "Users can click on an activity to view full details",
+        "Detail view shows complete activity information",
+        "Participant count is displayed and updated"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ActivityDetailPage.tsx",
+          "operation": "create",
+          "description": "Create activity detail page that displays full activity information including title, description, date, time, location, category, organizer name, and participant count. Fetch activity using getActivityDetails backend method."
+        },
+        {
+          "path": "frontend/src/hooks/useActivityDetails.ts",
+          "operation": "create",
+          "description": "Create React Query hook to fetch activity details by ID using getActivityDetails backend method. Handle loading and error states."
+        },
+        {
+          "path": "frontend/src/hooks/useUserProfile.ts",
+          "operation": "create",
+          "description": "Create React Query hook to fetch user profiles using getUserProfile backend method from authorization component. Use to display organizer name instead of principal ID."
+        },
+        {
+          "path": "frontend/src/components/ActivityCard.tsx",
+          "operation": "modify",
+          "description": "Make activity cards clickable and add navigation to activity detail page when clicked."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for ActivityDetailPage component with activity ID parameter."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Enable activity registration and display user's registered activities",
+      "acceptanceCriteria": [
+        "Users can register for an activity",
+        "Users can view a list of activities they are registered for",
+        "Registration status is persisted in the backend",
+        "Users cannot register for the same activity twice"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/MyActivitiesPage.tsx",
+          "operation": "create",
+          "description": "Create page that displays activities the current user has registered for. Fetch user registrations using getUserRegistrations backend method and display registered activities. Use authorization component to ensure only authenticated users can access."
+        },
+        {
+          "path": "frontend/src/hooks/useRegisterActivity.ts",
+          "operation": "create",
+          "description": "Create React Query mutation hook to register for activities using registerForActivity backend method. Handle success/error states and invalidate relevant queries on success."
+        },
+        {
+          "path": "frontend/src/hooks/useUserRegistrations.ts",
+          "operation": "create",
+          "description": "Create React Query hook to fetch user's registered activities using getUserRegistrations backend method. Handle loading and error states."
+        },
+        {
+          "path": "frontend/src/pages/ActivityDetailPage.tsx",
+          "operation": "modify",
+          "description": "Add registration button to activity detail page. Check if user is already registered and disable button or show registered status. Wire registration mutation to button click."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for MyActivitiesPage component. Wire navigation link in main layout/header to allow users to view their registered activities."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Add filtering and search for activities by category, date range, and keywords",
+      "acceptanceCriteria": [
+        "Users can filter activities by category",
+        "Users can filter activities by date range",
+        "Users can search activities by keyword",
+        "Filters can be combined",
+        "Results update in real-time as filters change"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ActivityFilters.tsx",
+          "operation": "create",
+          "description": "Create filter component with category dropdown, date range picker, and keyword search input. Manage filter state and emit filter changes to parent component. Reference category icons from frontend/public/assets/generated/category-icons.dim_256x256.png for visual indicators."
+        },
+        {
+          "path": "frontend/src/hooks/useActivityFilter.ts",
+          "operation": "create",
+          "description": "Create custom hook to manage filter state and apply filtering logic to activity list. Filter activities client-side by category, date range, and keyword search. Handle combined filters."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Add ActivityFilters component to homepage. Wire filter state to activity list display to show filtered results in real-time."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Display activities in a monthly calendar grid with category indicators",
+      "acceptanceCriteria": [
+        "Calendar displays activities in a monthly grid",
+        "Activities use different colors or icons based on category",
+        "Users can click on calendar dates to view activities for that day",
+        "Calendar allows navigation between months"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/CalendarPage.tsx",
+          "operation": "create",
+          "description": "Create calendar view page that displays activities in a monthly grid format. Use category-specific colors and icons from frontend/public/assets/generated/category-icons.dim_256x256.png. Include month navigation controls and handle date click events to show activities for selected day."
+        },
+        {
+          "path": "frontend/src/components/CalendarGrid.tsx",
+          "operation": "create",
+          "description": "Create calendar grid component that renders days of the month with activity indicators. Apply category-specific styling for activities. Handle date selection and month navigation."
+        },
+        {
+          "path": "frontend/src/components/DayActivitiesModal.tsx",
+          "operation": "create",
+          "description": "Create modal component to display activities for a selected date when user clicks on a calendar day. Show activity list with basic info and link to detail pages."
+        },
+        {
+          "path": "frontend/src/hooks/useCalendarActivities.ts",
+          "operation": "create",
+          "description": "Create custom hook to organize activities by date for calendar display. Group activities by day and handle month navigation logic."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Add route for CalendarPage component. Wire navigation link in main layout/header to allow users to access calendar view."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Implement vibrant education-focused theme with warm colors and card-based layout",
+      "acceptanceCriteria": [
+        "Visual design uses a cohesive color palette with warm, energetic tones",
+        "Typography is clear, friendly, and appropriate for educational context",
+        "Layout uses card-based components for organizing information",
+        "Design is consistent across all pages and components"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Configure Tailwind theme with warm, energetic color palette including oranges, greens, and teals. Define category-specific colors for sports, academic, arts, and social. Set up typography scale with friendly, clear fonts."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add global styles for education-focused theme including base typography, card styles, and color variables. Apply warm color scheme and ensure accessibility with sufficient contrast."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "create",
+          "description": "Create main layout component with consistent header, navigation, and content area. Apply theme styling and ensure responsive design. Include hero banner from frontend/public/assets/generated/hero-banner.dim_1200x400.png on appropriate pages."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap all routes with Layout component to ensure consistent theme and navigation across all pages."
+        }
+      ]
+    }
+  ]
+}

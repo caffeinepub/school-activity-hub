@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.75rem;
+        
+        /* Light mode - Warm, energetic education theme */
+        --background: 0.99 0.01 40;
+        --foreground: 0.25 0.02 30;
+        --card: 1 0 0;
+        --card-foreground: 0.25 0.02 30;
+        --popover: 1 0 0;
+        --popover-foreground: 0.25 0.02 30;
+        
+        /* Primary: Vibrant Orange */
+        --primary: 0.65 0.20 35;
+        --primary-foreground: 0.99 0 0;
+        
+        /* Secondary: Soft Teal */
+        --secondary: 0.75 0.12 180;
+        --secondary-foreground: 0.20 0.02 180;
+        
+        --muted: 0.96 0.01 40;
+        --muted-foreground: 0.55 0.02 30;
+        --accent: 0.95 0.03 40;
+        --accent-foreground: 0.30 0.02 30;
+        
+        /* Destructive: Warm Red */
+        --destructive: 0.55 0.22 25;
+        --destructive-foreground: 0.99 0 0;
+        
+        --border: 0.90 0.01 40;
+        --input: 0.90 0.01 40;
+        --ring: 0.65 0.20 35;
+        
+        /* Chart colors - Education themed */
+        --chart-1: 0.65 0.20 35;
+        --chart-2: 0.75 0.12 180;
+        --chart-3: 0.60 0.18 280;
+        --chart-4: 0.70 0.15 120;
+        --chart-5: 0.55 0.22 25;
+    }
+
+    .dark {
+        --background: 0.20 0.02 30;
+        --foreground: 0.95 0.01 40;
+        --card: 0.25 0.02 30;
+        --card-foreground: 0.95 0.01 40;
+        --popover: 0.25 0.02 30;
+        --popover-foreground: 0.95 0.01 40;
+        
+        /* Primary: Bright Orange for dark mode */
+        --primary: 0.70 0.18 35;
+        --primary-foreground: 0.15 0.02 30;
+        
+        /* Secondary: Bright Teal */
+        --secondary: 0.70 0.15 180;
+        --secondary-foreground: 0.95 0.01 180;
+        
+        --muted: 0.30 0.02 30;
+        --muted-foreground: 0.65 0.02 40;
+        --accent: 0.35 0.03 30;
+        --accent-foreground: 0.95 0.01 40;
+        
+        --destructive: 0.60 0.20 25;
+        --destructive-foreground: 0.95 0 0;
+        
+        --border: 0.35 0.02 30;
+        --input: 0.35 0.02 30;
+        --ring: 0.70 0.18 35;
+        
+        --chart-1: 0.70 0.18 35;
+        --chart-2: 0.70 0.15 180;
+        --chart-3: 0.65 0.16 280;
+        --chart-4: 0.65 0.18 120;
+        --chart-5: 0.60 0.20 25;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+}
+
+@layer components {
+    /* Custom scrollbar for better aesthetics */
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .custom-scrollbar::-webkit-scrollbar-track {
+        @apply bg-gray-100 rounded-full;
+    }
+    
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        @apply bg-orange-300 rounded-full hover:bg-orange-400;
+    }
+}
